@@ -1,20 +1,21 @@
-# backend/Dockerfile
+# Use an official Node.js runtime as the base image
 FROM node:18-alpine
 
-# Set the working directory for the backend
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and yarn.lock for better caching
-COPY package.json yarn.lock ./
+# Install dependencies
+COPY package.json ./
+RUN npm install
 
-# Install dependencies using yarn
-RUN yarn install
-
-# Copy the backend application code into the container
+# Copy the rest of the application code
 COPY . .
 
-# Expose the necessary port (adjust if needed)
-EXPOSE 5000
+# Build the Next.js application
+RUN npm run build
 
-# Run the backend using `yarn dev` as specified
-CMD ["yarn", "dev"]
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Start the Next.js application
+CMD ["npm", "start"]
