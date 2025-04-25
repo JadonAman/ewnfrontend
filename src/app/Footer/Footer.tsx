@@ -189,7 +189,7 @@ const Footer = () => {
             <li className="footer-item">
               <IonIcon icon={location} aria-hidden="true" className="w-8 h-8 mt-4"></IonIcon>
               <address className="contact-link address">
-                CGC Mohali,<br />SAS Nagar , Punjab
+                CGC MOHALI,<br />SAS Nagar , Punjab
               </address>
             </li>
             <li className="footer-item">
